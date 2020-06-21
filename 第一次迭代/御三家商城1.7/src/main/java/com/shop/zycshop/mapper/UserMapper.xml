@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.zycshop.mapper.UserMapper">
+    <resultMap id="UserMapper" type="com.shop.zycshop.entity.User">
+        <id property="user_id" column="user_id"/>
+        <result property="userAccount" column="user_account"/>
+        <result property="userPassword" column="user_password"/>
+        <result property="userName" column="user_name"/>
+        <result property="userRealName" column="user_real_name"/>
+        <result property="userIdentify" column="user_identify"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userAddress" column="user_address"/>
+        <result property="userRegisterTime" column="user_register_time"/>
+    </resultMap>
+
+</mapper>

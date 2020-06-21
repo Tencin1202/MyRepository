@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>御三家商城</title>
+    <link type="text/css" rel="stylesheet" href="dist/css/bootstrap.min.css" th:href="@{/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css" th:href="@{/css/index1.css}" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/information.css" th:href="@{/css/information.css}" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/animate.css" th:href="@{/css/animate.css}" charset="utf-8">
+    <style>
+
+    </style>
+</head>
+<body>
+<!-- 导航部分  begin-->
+<nav class="navbar navbar-default" role="navigation" style="background-color:#faf2cc ">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/zyc">经典御三家</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav_hover"><a href="information.html" th:href="@{/user/information}">个人信息</a></li>
+                <li class="nav_hover"><a href="#" data-toggle="modal" data-target="#loginModal">登录</a></li>
+                <li class="nav_hover"><a href="#"  data-toggle="modal" data-target="#register">注册</a></li>
+                <li class="nav_hover"><a href="#">🛒购物车</a></li>
+                <li class="nav_hover"><a href="#">我的订单</a></li>
+
+                <form role="search" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="输入商品名称" >
+                        <button type="submit" class="btn btn-default nav_hover">🔍搜索</button>
+                    </div>
+                </form>
+            </ul>
+        </div>
+    </div>
+
+</nav>
+<!-- 导航部分  end-->
+
+
+<!--个人信息-->
+<div class="container background_1">
+    <div class="row">
+        <div class="col-md-12 title">个人信息</div>
+    </div>
+    <div style="background-color: #8a6d3b;width:100%;height: 2px"></div>
+    <div class="row background_2">
+        <ul class="information">
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">账号</label>
+                <div class="col-sm-9">
+                    <input type="text" name="userAccount" class="form-control" value="crh777" readonly="readonly">
+                </div>
+            </li>
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">昵称</label>
+                <div class="col-sm-9">
+                    <input type="text" name="userName" class="form-control" value="CRUHH">
+                </div>
+            </li>
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">性别</label>
+                <div class="col-sm-9">
+                    <lable><input type="radio" name="userGender" value="男" checked="checked">男</lable>
+                    <lable><input type="radio" name="userGender"  value="女">女</lable>
+                </div>
+            </li>
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">真实姓名</label>
+                <div class="col-sm-9">
+                    <input type="text" name="userRealName" class="form-control" value="CuiRuhao" readonly="readonly">
+                </div>
+            </li>
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">身份证号</label>
+                <div class="col-sm-9">
+                    <input type="text" name="userAccount"  class="form-control" value="111111111111111111" readonly="readonly">
+                </div>
+            </li>
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">电话</label>
+                <div class="col-sm-9">
+                    <input type="text" name="userPhone" class="form-control" value="13511111111111" >
+                </div>
+            </li>
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">邮箱</label>
+                <div class="col-sm-9">
+                    <input type="text" name="userMail" class="form-control" value="123456@qq.com">
+                </div>
+            </li>
+            <li>
+                <div class="col-md-1"></div>
+                <label class="col-md-2 control-label">收货地址</label>
+                <div class="col-sm-9">
+                    <input type="text" name="userAddress" class="form-control" value="广东省广州市">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="foot">
+        <div class="row">
+            <div class="col-md-6"><button class="button" style=" background-color: #9acfea;margin-left: 40%">返回首页</button></div>
+            <div class="col-md-6"><button class="button" style="float:right;margin-right: 30%">保存修改</button></div>
+        </div>
+    </div>
+</div>
+<!--个人信息  end-->
+</body>
+</html>

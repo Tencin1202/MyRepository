@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>御三家商城</title>
+    <link type="text/css" rel="stylesheet" href="dist/css/bootstrap.min.css" th:href="@{/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="css/index.css" th:href="@{/css/index.css}" charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/animate.css" th:href="@{/css/animate.css}" charset="utf-8">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<!-- 导航部分  begin-->
+    <nav class="navbar navbar-default" role="navigation" style="background-color:#faf2cc ">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/zyc">经典御三家</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li th:if="${session.user==null}" class="nav_hover">
+                        <a href="#" data-toggle="modal" data-target="#loginModal">登录</a>
+                    </li>
+                    <li th:if="${session.user!=null}" class="nav_hover">
+                        <a href="javascript:void(0)" th:href="@{/user/information}" th:text="${session.user.userName}"></a>
+                    </li>
+                    <li th:if="${session.user!=null}" class="nav_hover">
+                        <a href="#" th:href="@{/user/logout}">退出</a>
+                    </li>
+                    <li th:if="${session.user!=null}" class="nav_hover">
+                        <a href="#">商家入驻</a>
+                    </li>
+                    <li th:if="${session.user==null}" class="nav_hover">
+                        <a href="#" data-toggle="modal" data-target="#register">注册</a>
+                    </li>
+                    <li th:if="${session.user!=null}" class="nav_hover"><a href="#">🛒购物车</a></li>
+                    <li th:if="${session.user!=null}" class="nav_hover"><a href="#">我的订单</a></li>
+
+                    <form role="search" class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="输入商品名称" >
+                            <button type="submit" class="btn btn-default nav_hover">🔍搜索</button>
+                        </div>
+                    </form>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- 导航部分  end-->
+
+ <div style="display: flex;height: 500px">
+<!-- logo -->
+     <div class="left"style="width: 250px; margin-left: 15px">
+        <div class="logo" >
+            <img src="images/LOGO.jpg" style="width: 100%;height: 175px" alt="logo">
+        </div>
+<!-- logo end -->
+<!-- 分类表-->
+        <div class="category" style="margin-top: 10px;">
+            <div class="cate-list" style="width: 100%" >
+                <!-- 分类 -->
+                <div class="list" style="background-color:#fcede3;box-shadow: 0 0 10px rgba(0,0,0,.3);border-radius: 6px;width: 100%;">
+                    <ul class="classify">
+                        <div style="font-size: 18px; text-align: center;">商品分类🗄</div>
+                        <li><a  href="#">电子产品</a>
+                            <div class="unfold">
+                                <div>
+                                    <a>手机</a>/<a>电脑</a>/<a>相机</a>/<a>电视</a>/<a>外设</a>
+                                    /<a>耳机</a>/<a>音箱</a>/<a>空调</a>/<a>冰箱</a>/<a>更多</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a  href="#">家居用品</a>
+                            <div class="unfold">
+                                <div>
+                                    <a>tag</a>/<a>tag</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a  href="#">服装</a>
+                            <div class="unfold">
+                                <div>
+                                    <a>tag</a>/<a>tag</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a  href="#">食品</a>
+                            <div class="unfold">
+                                <div>
+                                    <a>tag</a>/<a>tag</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a  href="#">艺术</a>
+                            <div class="unfold">
+                                <div>
+                                    <a>tag</a>/<a>tag</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a  href="#">医疗保健</a>
+                            <div class="unfold">
+                                <div>
+                                    <a>tag</a>/<a>tag</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a  href="#">图书</a>
+                            <div class="unfold">
+                                <div>
+                                    <a>tag</a>/<a>tag</a>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- 分类end -->
+<!-- 轮播 -->
+          <div class="container" style="height: 100%">
+            <div id="myCarousel" class="carousel slide" style="width: 1000px">
+                <!-- 轮播（Carousel）指标 -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                <!-- 轮播（Carousel）项目 -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img src="images/轮播图1.jpg" style="" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img src="images/轮播图2.jpg" style="" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img src="images/轮播图3.jpg" style="" alt="Third slide">
+                    </div>
+                </div>
+                <!-- 轮播（Carousel）导航 -->
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+              <!-- 轮播end -->
+        </div>
+     <!--轮播图end -->
+</div>
+
+<!-- 分界线 -->
+    <div style="width: 100%;background-color: #999999;height:2px;margin-top:30px"></div>
+
+
+<!-- 商品内容部分 begin-->
+    <div class="container">
+    <!-- 热销 -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="font-size: 30px;margin-top: 30px;text-align: center;color: #a94442">热销推荐🔥</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 降价-->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="font-size: 30px;margin-top: 30px;text-align: center;color: #9acfea">优惠降价💧</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 新品 -->
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="font-size: 30px;margin-top: 30px;text-align: center;color: #5cb85c">新品上架🌱</div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="images/iphone11.jpg" alt="通用的占位符缩略图">
+                <div class="caption">
+                    <h3 style="font-size: 20px">Apple iPhone 11 Pro Max (A2220) 256GB 暗夜绿色 移动联通电信4G手机 双卡双待</h3>
+                    <p>价格：9999元
+                        <a href="#" class="btn btn-primary" role="button" style="float: right">
+                            查看详情
+                        </a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- 商品内容部分 end-->
+
+    <div class="container">
+    <div class="row">
+            <div class="gototop">
+                <a onclick="pageScroll()">🔝</a>
+            </div>
+
+    </div>
+
+</div>
+
+
+<!-- 登录模态框 begin -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">用户登录</h4>
+            </div>
+            <div class="modal-body">
+                <!--登录的form表单-->
+                <form id="loginForm" class="form-horizontal" role="form" action="">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">账号</label>
+                        <div class="col-sm-5">
+
+                            <input type="text" class="form-control" name="userAccount" placeholder="请输入账号">
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div  class="col-sm-3" id="userTip" style="padding-top: 1.2%; display:none">
+                            <label class="alert-danger" >账号不存在</label>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label  class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-5">
+                            <input type="password" class="form-control" name="userPassword" placeholder="请输入密码">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div class="col-sm-3" id="pwdTip" style="padding-top: 1.2%; display: none">
+                            <label class="alert-danger">密码不正确</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">请记住我
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <input type="button" class="btn btn-primary" value="登录" th:onclick="|login()|">
+                    </div>
+                </form>
+                <!--登录的form表单-->
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+</div>
+<!-- 登录模态框 end -->
+
+<!-- 注册模态框begin -->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="regModalLabel">用户注册</h4>
+            </div>
+            <div class="modal-body">
+                <!--注册的form表单-->
+                <form id="registerForm" action="" class="form-horizontal" role="form">
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">账号</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="userAccount" class="form-control"  required
+                                   placeholder="长度为4-10位，登录账号，不可修改" maxlength="10" th:onblur="|accountCheck(this)|">
+                            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </div>
+                        <div id="msg_acc" class="col-sm-3" style="padding-top:1.2%">
+                            <lable id="tip_acc"></lable>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-7">
+                            <input type="password" name="userPassword" class="form-control" placeholder="长度为6-12位"
+                                   maxlength="12" th:onblur="|passwordCheck(this)|">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div id="msg_pass" class="col-sm-3" style="padding-top:1.2%">
+                            <lable id="tip_pass"></lable>
+                        </div>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">重复密码</label>
+                        <div class="col-sm-7">
+                            <input type="password" name="password_r" class="form-control" placeholder="确保两次输入密码相同"
+                                   maxlength="12" th:onblur="|checkpassRep(this)|">
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </div>
+                        <div id="msg_rep" class="col-sm-3" style="padding-top:1.2%">
+                            <lable id="tip_rep"></lable>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">昵称</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="userName" maxlength="10" class="form-control" placeholder="显示的名称，可以修改"
+                            th:onblur="|nameCheck(this)|">
+                        </div>
+                        <div id="msg_name" class="col-sm-3" style="padding-top:1.2%">
+                            <lable id="tip_name"></lable>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">真实姓名</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="userRealName"  class="form-control"  placeholder="真实姓名"
+                            th:onblur="|realnameCheck(this)|">
+                        </div>
+                        <div id="msg_real_name" class="col-sm-3" style="padding-top:1.2%">
+                            <lable id="tip_real_name"></lable>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">身份证号</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="userIdentify" maxlength="18" class="form-control"
+                                  th:onblur="|identifyCheck(this)|" placeholder="18位合法身份证号">
+                        </div>
+                        <div id="msg_identify" class="col-sm-3" style="padding-top:1.2%">
+                            <lable id="tip_identify"></lable>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">性别</label>
+                        <div class="col-sm-3" style="padding-top: 5px">
+                            <lable><input type="radio" name="userGender" value="男" checked="checked">男</lable>
+                            <lable><input type="radio" name="userGender"  value="女">女</lable>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">电话</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="userPhone" maxlength="11" class="form-control"
+                                   th:onblur="|phoneCheck(this)|" placeholder="合法手机格式">
+                            <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
+                        </div>
+                        <div id="msg_phone" class="col-sm-3" style="padding-top:1.2%">
+                            <lable id="tip_phone"></lable>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">电子邮箱</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="userMail" maxlength="20" class="form-control"  placeholder="合法邮箱格式">
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">收货地址</label>
+                        <div class="col-sm-7">
+                            <input type="text" name="userAddress" maxlength="40" class="form-control"  placeholder="有效地址">
+                        </div>
+                    </div>
+
+                    <!--  地址下拉框部分
+                    <div class="form-group has-feedback">
+                        <label class="col-sm-2 control-label">收货地址</label>
+                        <div >
+                            <div style="display:inline-block;padding-left: 2.5%">
+                                <select name="province" id="input_province" class="form-control" style="width: 140px">
+                                    <option value="">请选择省</option>
+                                </select>
+                            </div>
+                            <div style="display:inline-block;">
+                                <select name="city" id="input_city" class="form-control" style="width: 140px">
+                                    <option value="">请选择市</option>
+                                </select>
+                            </div>
+                            <div style="display: inline-block">
+                                <input type="text" name="address" class="form-control" style="width: 120px;padding-bottom: 2px" placeholder="详细地址">
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary"  th:onclick="|register()|">注册</button>
+                    </div>
+                </form>
+                <!--form结束-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 注册模态框end -->
+
+    <script src="dist/js/jquery.min.js" th:src="@{/dist/js/jquery.min.js}"></script>
+    <script src="js/carousel.js" th:src="@{/js/carousel.js}" type="text/javascript" charset="utf-8"></script>
+    <script src="dist/js/bootstrap.min.js" th:src="@{/dist/js/bootstrap.min.js}"></script>
+    <script src="js/wow.js" th:src="@{/js/wow.js}"></script>
+    <script src="dist/js/city.js" th:src="@{/dist/js/city.js}"></script>
+
+    <script th:inline="javascript">
+        var password_1=null;
+        var password_2=null;
+        var contextPath =[[${#request.getContextPath()}]];
+
+<!--登录注册实现-->
+
+        //注册成功判断参数
+        var accountcheck_1=false;
+        var accountcheck_2=false;
+        var passcheck_1=false;
+        var passcheck_2=false;
+        var phonecheck=false;
+        var namecheck_1=false;
+        var namecheck_2=false;
+        var realnamecheck=false;
+        var identifycheck=false;
+
+        //注册按键
+
+        function register(){
+        var datas =$("#registerForm").serialize();
+         if(accountcheck_1&&accountcheck_2&&passcheck_1&&passcheck_2
+         &&phonecheck&&namecheck_1&&namecheck_2&&realnamecheck&&identifycheck){
+             $.ajax({
+                 url:contextPath+"/user/register",
+                 data: datas,
+                 method:"post",
+                 success:function (data) {
+                     if(data=="success"){
+                         alert("注册成功，请登录!");
+                         $("#register").modal('hide');
+                     }
+                 }
+             })
+             $("#tip_acc").html("");
+             $("#tip_pass").html("");
+             $("#tip_rep").html("");
+             $("#tip_real_name").html("");
+             $("#tip_identify").html("");
+             $("#tip_phone").html("");
+             $("#tip_name").html("");
+             document.getElementById("registerForm").reset();
+         }
+         else{
+             alert("注册信息有误，请重新检查!");
+         }
+
+        }
+
+        //登录键
+        function login(){
+            var datas=$("#loginForm").serialize();
+            $.ajax({
+                url:contextPath+"/user/login",
+                data: datas,
+                method:"post",
+                success:function (data) {
+                    $("#userTip").css("display","none");
+                    $("#pwdTip").css("display","none");
+                    if(data=="102"){
+                        $("#register").modal('hide');
+                        alert("登录成功");
+                        window.location.href=contextPath;
+                    }
+                    else if(data=="101"){
+                        $("#userTip").css("display","block");
+                    }
+                    else if(data=="103"){
+                        $("#pwdTip").css("display","block");
+                    }
+                }
+            })
+        }
+
+        //调用username的检测用户名长度方法和判断用户名是否存在方法
+        function accountCheck(account) {
+            checkaccountLength(account);
+            checkAccount(account);
+        }
+
+        //检测用户名是否存在(accountcheck_1)
+        function checkAccount(account) {
+            $.ajax({
+                url:contextPath+"/user/checkAccount",
+                data:
+                    {"account": account.value},
+                method:"post",
+                success:function (data) {
+                    if(data=="102")
+                    {
+                        $("#msg_acc").css("display","block");
+                        $("#tip_acc").html("账号已存在");
+                        $("#tip_acc").removeClass("alert-success");
+                        $("#tip_acc").addClass("alert-danger");
+                        accountcheck_1=false;
+                    }
+                    else if(data=="101"&&accountcheck_2==true)
+                    {
+                        $("#msg_acc").css("display","block");
+                        $("#tip_acc").html("账号可以注册");
+                        $("#tip_acc").removeClass("alert-danger");
+                        $("#tip_acc").addClass("alert-success");
+                        accountcheck_1=true;
+                    }
+                    else{
+                        $("#msg_acc").css("display","block");
+                        $("#tip_acc").html("账号长度错误");
+                        $("#tip_acc").removeClass("alert-success");
+                        $("#tip_acc").addClass("alert-danger");
+                        accountcheck_1=false;
+                    }
+                }
+            })
+        }
+
+        //检测用户名长度(accountcheck_2)
+        function checkaccountLength(account) {
+            var min=4;
+            if(account.value.length<min){
+                $("#msg_acc").css("display","block");
+                $("#tip_acc").html("账号长度错误");
+                $("#tip_acc").removeClass("alert-success");
+                $("#tip_acc").addClass("alert-danger");
+                accountcheck_2=false;
+            }
+            else {
+                $("#msg_acc").css("display","none");
+                accountcheck_2=true;
+            }
+        }
+
+        //调用password的检测密码长度方法和记录第一次密码方法
+        function passwordCheck(password) {
+            checkpassLength(password);
+            getpass(password);
+        }
+
+        //检测密码长度(password_1)
+        function checkpassLength(password) {
+            var min=6;
+            if(password.value.length<min){
+                $("#msg_pass").css("display","block");
+                $("#tip_pass").html("密码长度错误");
+                $("#tip_pass").removeClass("alert-success");
+                $("#tip_pass").addClass("alert-danger");
+                passcheck_1=false;
+            }
+            else {
+                $("#msg_pass").css("display","none");
+                passcheck_1=true;
+            }
+        }
+
+        //记录第一次输入的密码(password_2)
+        function getpass(password) {
+            password_1=password.value;
+        }
+
+        //检测两次密码是否相同
+        function checkpassRep(password) {
+            password_2=password.value;
+            if(password_2===password_1){
+                $("#msg_rep").css("display","block");
+                $("#tip_rep").html("通过✔");
+                $("#tip_rep").removeClass("alert-danger");
+                $("#tip_rep").addClass("alert-success");
+                passcheck_2=true;
+            }
+            else {
+                $("#msg_rep").css("display","block");
+                $("#tip_rep").html("两次密码不相同❌");
+                $("#tip_rep").removeClass("alert-success");
+                $("#tip_rep").addClass("alert-danger");
+                passcheck_2=false;
+            }
+        }
+
+        //调用name的检测昵称长度方法和判断昵称是否存在方法
+        function nameCheck(name) {
+            checknameLength(name);
+            checkName(name);
+        }
+
+        //昵称长度检测（namecheck_2)
+        function checknameLength(name) {
+            var min=2;
+            if(name.value.length<min){
+                $("#msg_name").css("display","block");
+                $("#tip_name").html("昵称长度过短");
+                $("#tip_name").removeClass("alert-success");
+                $("#tip_name").addClass("alert-danger");
+                namecheck_2=false;
+            }
+            else {
+                $("#msg_name").css("display","none");
+                namecheck_2=true;
+            }
+        }
+        //检测昵称是否存在(namecheck)
+        function checkName(name){
+            $.ajax({
+                url:contextPath+"/user/checkName",
+                data:
+                    {"name": name.value},
+                method:"post",
+                success:function (data) {
+                    if(data=="102")
+                    {
+                        $("#msg_name").css("display","block");
+                        $("#tip_name").html("昵称已存在");
+                        $("#tip_name").removeClass("alert-success");
+                        $("#tip_name").addClass("alert-danger");
+                        namecheck_1=false;
+                    }
+                    else if(data=="101"&&namecheck_2==true)
+                    {
+                        $("#msg_name").css("display","block");
+                        $("#tip_name").html("昵称可以注册");
+                        $("#tip_name").removeClass("alert-danger");
+                        $("#tip_name").addClass("alert-success");
+                        namecheck_1=true;
+                    }else{
+                        $("#msg_name").css("display","block");
+                        $("#tip_name").html("昵称长度过短");
+                        $("#tip_name").removeClass("alert-success");
+                        $("#tip_name").addClass("alert-danger");
+                        namecheck_1=false;
+                }
+                }
+            })
+        }
+
+        //检测身份证号码合法性(identifycheck)
+        function identifyCheck(identify){
+            if(identify.value.length!=18){
+                $("#msg_identify").css("display","block");
+                $("#tip_identify").html("身份证号长度错误");
+                $("#tip_identify").removeClass("alert-success");
+                $("#tip_identify").addClass("alert-danger");
+                identifycheck=false;
+            }
+            else {
+                for(var i=0;i<17;i++){
+                    if((identify.value[i]>='0') && (identify.value[i]<='9'))
+                    {
+                        identifycheck=true;
+                    }
+                    else{
+                        identifycheck=false;
+                        break;
+                    }
+                }
+                    if(identifycheck&&(((identify.value[17]>='0') && (identify.value[17]<='9'))||(identify.value[17]=='X')))
+                    {
+                        identifycheck=true;
+                    }
+                    else{
+                        identifycheck=false;
+                }
+
+            if(identifycheck){
+                $("#msg_identify").css("display","block");
+                $("#tip_identify").html("通过✔");
+                $("#tip_identify").removeClass("alert-danger");
+                $("#tip_identify").addClass("alert-success");
+            }
+            else{
+                $("#msg_identify").css("display","block");
+                $("#tip_identify").html("身份证号格式错误");
+                $("#tip_identify").removeClass("alert-success");
+                $("#tip_identify").addClass("alert-danger");
+            }
+            }
+        }
+
+        //检测电话号码长度（phonecheck）
+        function phoneCheck(phone){
+            var min=7;
+            if(phone.value.length<min){
+                $("#msg_phone").css("display","block");
+                $("#tip_phone").html("电话长度错误");
+                $("#tip_phone").removeClass("alert-success");
+                $("#tip_phone").addClass("alert-danger");
+                phonecheck=false;
+            }
+            else {
+                $("#msg_phone").css("display","block");
+                $("#tip_phone").html("通过✔");
+                $("#tip_phone").removeClass("alert-danger");
+                $("#tip_phone").addClass("alert-success");
+                phonecheck=true;
+            }
+        }
+
+        //检测真实姓名（realnamecheck）
+        function realnameCheck(real_name){
+            var min=2;
+            if(real_name.value.length<min){
+                $("#msg_real_name").css("display","block");
+                $("#tip_real_name").html("姓名长度过短");
+                $("#tip_real_name").removeClass("alert-success");
+                $("#tip_real_name").addClass("alert-danger");
+                realnamecheck=false;
+            }
+            else {
+                $("#msg_real_name").css("display","block");
+                $("#tip_real_name").html("通过✔");
+                $("#tip_real_name").removeClass("alert-danger");
+                $("#tip_real_name").addClass("alert-success");
+                realnamecheck=true;
+            }
+        }
+
+
+        <!--登录注册实现end-->
+
+<!--城市下拉框-->
+    $(function() {
+        var html = "";
+        var province_idx;
+        $("#input_city").append(html);
+
+        $.each(cityMessage, function(idx, item) {
+            if(item.parid == '1'){
+                html += "<option value='" + item.regname + "' exid='" + item.regid + "'>" + item.regname + "</option>";
+            }
+        })
+        $("#input_province").append(html);
+        $("#input_province").change(function(e) {
+            var province =$(this).val();
+            var cityList = [];
+            if(province == "") return;
+            $("#input_city option").remove();
+            var html = "<option value=''>请选择市</option>";
+
+//					获取已选择的省份的数组下标
+            $.each(cityMessage, function(idx, item) {
+                if(province == item.regname && item.parid == '1') {
+                    province_idx=idx;
+                }
+            })
+
+//					获取已选择的省份的城市列表
+            $.each(cityMessage, function(idx, item) {
+                if(cityMessage[idx].parid == cityMessage[province_idx].regid) {
+                    cityList.push(cityMessage[idx]);
+                }
+            })
+
+//					添加城市信息给标签
+            if(cityList instanceof Array && cityList.length>0){
+                $.each(cityList, function(idx, item) {
+                    console.log(item);
+                    html += "<option value='" + item.regname + "' exid='" + item.regid + "'>" + item.regname + "</option>";
+
+                })
+            }else{
+                html += "<option value='" + cityMessage[province_idx].regname + "' exid='" + cityMessage[province_idx].regid + "'>" + cityMessage[province_idx].regname + "</option>";
+
+            }
+            $("#input_city").append(html);
+        })
+    })
+</script>
+<!--城市下拉框end-->
+
+<script>
+    function pageScroll(){
+//把内容滚动指定的像素数（第一个参数是向右滚动的像素数，第二个参数是向下滚动的像素数）
+        window.scrollBy(0,-100);
+//延时递归调用，模拟滚动向上效果
+        scrolldelay = setTimeout('pageScroll()',100);
+//获取scrollTop值，声明了DTD的标准网页取document.documentElement.scrollTop，否则取document.body.scrollTop；因为二者只有一个会生效，另一个就恒为0，所以取和值可以得到网页的真正的scrollTop值
+        var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+//判断当页面到达顶部，取消延时代码（否则页面滚动到顶部会无法再向下正常浏览页面）
+        if(sTop==0) clearTimeout(scrolldelay);
+    }
+</script>
+</body>
+
+</html>

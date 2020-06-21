@@ -1,0 +1,59 @@
+body {
+	background-image: url("../images/背景图.jpg");
+}
+.nav_hover:hover{
+	background-color: #f7ecb5;
+}
+
+.classify{
+	list-style-type:none;
+	padding-top: 25px;
+	padding-bottom: 15px;
+	padding-left:initial;
+
+}
+.classify li{
+	margin-bottom: 10px;
+	margin-top:10px;
+	font-size:17px;
+	text-align: center;
+}
+.classify li a{
+	margin-right: 3px;
+	margin-left: 3px;
+	color:#72716b;
+}
+.classify li:hover{
+	background-color: #dbb1b1;
+}
+
+.unfold{
+	position: absolute;
+	left:100% ;
+	width: 100%;
+	height: 30%;
+	background-color: #e7c3c3;
+	border-radius: 10px;
+	display:none;
+	text-align: left;
+	font-size:120%;
+	z-index:9999;
+}
+.classify li:hover .unfold{
+	display:block;
+}
+.unfold div{
+	padding-left:15px;
+	padding-top:20px;
+	color:azure;
+}
+.classify li div a{
+	color:azure;
+}
+.gototop{
+	margin-left:80%;
+	font-size:50px;
+	position:fixed;
+	z-index:999;
+	top:90%;
+}
