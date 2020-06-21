@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.zycshop.mapper.SellerMapper">
+    <resultMap id="SellerMapper" type="com.shop.zycshop.entity.Seller">
+        <id property="sellerId" column="seller_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="shopName" column="shop_name"/>
+        <result property="shopAddress" column="shop_address"/>
+        <result property="shopLevel" column="shop_level"/>
+        <result property="sellerRegister" column="seller_register"/>
+    </resultMap>
+
+</mapper>

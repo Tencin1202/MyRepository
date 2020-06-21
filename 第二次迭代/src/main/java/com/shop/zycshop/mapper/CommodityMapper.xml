@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.zycshop.mapper.CommodityMapperMapper">
+    <resultMap id="CommodityMapper" type="com.shop.zycshop.entity.Commodity">
+        <id property="skuId" column="sku_id"/>
+        <result property="skuName" column="sku_name"/>
+        <result property="spuId" column="spu_id"/>
+        <result property="sellerId" column="seller_id"/>
+        <result property="skuDescription" column="sku_des"/>
+        <result property="skuImg" column="sku_img"/>
+        <result property="skuOldPrice" column="sku_old_price"/>
+        <result property="skuNewPrice" column="sku_new_price"/>
+        <result property="skuStock" column="sku_stock"/>
+        <result property="skuSales" column="sku_sales"/>
+        <result property="skuRegister" column="sku_register"/>
+        <result property="skuTag" column="sku_tag"/>
+    </resultMap>
+
+</mapper>
